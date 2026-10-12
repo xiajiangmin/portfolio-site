@@ -14,6 +14,13 @@
 .hero-actions .button span, .hero-actions .hero-secondary span { display: inline-block; font-size: 19px; line-height: 1; transition: transform .2s ease; }
 .hero-actions a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(53,45,118,.1); }
 .hero-actions a:hover span { transform: translate(3px,3px); }
+.hero-actions .hero-secondary .hero-secondary-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none; width: 29px; height: 29px; margin-left: 0;
+  border-radius: 50%; background: #6754d9; color: #fff;
+  font-size: 17px; font-weight: 500; line-height: 1;
+}
+.hero-actions .hero-secondary:hover .hero-secondary-icon { transform: translate(2px,-2px); }
 .hero-actions a:active { transform: scale(.98); }
 .hero-monogram { pointer-events: none; }
 .feature-footer { flex-wrap: wrap; margin-top: 0; }
@@ -211,4 +218,48 @@
 .cf-intro-label::before, .d-intro-label::before {
   content: ''; flex: none; width: 8px; height: 8px; border-radius: 50%;
   background: #d9f264; box-shadow: 0 0 0 3px rgba(217,242,100,.2);
+}
+
+/* The hero poster is a quiet, non-interactive moving composition. */
+.hero-art { cursor: default; }
+.art-bottom { align-items: end; }
+.art-year {
+  text-align: right; white-space: nowrap; font-size: 12px;
+  font-weight: 750; letter-spacing: .1em;
+}
+.orbit-one { animation: hero-orbit 28s linear infinite; }
+.orbit-one::after {
+  content: ''; position: absolute; top: 14%; left: 14%;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #d9f264; box-shadow: 0 0 0 5px rgba(217,242,100,.19);
+}
+.hero-monogram { animation: hero-float 6s ease-in-out infinite; }
+@keyframes hero-orbit {
+  from { transform: rotate(-20deg); }
+  to { transform: rotate(340deg); }
+}
+@keyframes hero-float {
+  0%, 100% { transform: translate(-50%,-50%) rotate(-13deg); }
+  50% { transform: translate(-50%,-61%) rotate(-10deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-one, .hero-monogram { animation: none !important; }
+}
+
+/* Keep the transition from the featured case to more work compact on phones. */
+@media (max-width: 680px) {
+  #work { padding-bottom: 28px; }
+  #more { padding-top: 34px; }
+}
+
+/* On the cropped mobile poster, keep the dot's visible pace and shorten only
+   the section of its orbit that passes outside the frame. */
+@media (max-width: 680px) {
+  .orbit-one { animation: hero-orbit-mobile 17.2s linear infinite; }
+}
+@keyframes hero-orbit-mobile {
+  0% { transform: rotate(-20deg); }
+  76% { transform: rotate(149deg); }
+  82% { transform: rotate(301deg); }
+  100% { transform: rotate(340deg); }
 }
