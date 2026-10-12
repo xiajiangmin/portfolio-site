@@ -24,3 +24,5 @@ if (toggle && nav) {
     if (!nav.contains(event.target) && !toggle.contains(event.target)) closeMenu();
   });
 }
+const homepageProductShot = document.querySelector('.v2-featured .workbench-shot');
+if (homepageProductShot) homepageProductShot.style.transform = 'none';
