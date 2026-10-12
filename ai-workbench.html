@@ -7,182 +7,23 @@
   <meta name="description" content="AI 内容创作工作台：让项目资料、知识和历史经验进入 AI 创作，并生成多平台内容。">
   <title>AI 内容创作工作台｜夏夏作品集</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-system.css">
   <script src="script.js" defer></script>
   <style>
-    .d-case{background:#f6f6fb;color:#242432}
-    .d-wrap{width:min(1272px,calc(100% - 48px));margin:0 auto}
-    .d-hero{display:grid;grid-template-columns:minmax(0,1fr) 464px;gap:48px;padding:54px 0 50px;align-items:start}
-    .d-kicker{margin:0 0 22px;color:#6955e5;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    .d-hero h1{margin:0;font-size:clamp(46px,4.4vw,60px);line-height:1.05;letter-spacing:-.055em}
-    .d-subtitle{max-width:720px;margin:20px 0 0;color:#5c5e73;font-size:18px;line-height:1.65}
-    .d-intro{background:#fff;border:1px solid #dedee9;border-radius:22px;padding:28px 30px 26px}
-    .d-intro-label{margin:0 0 18px;color:#6955e5;font-size:11px;font-weight:800;letter-spacing:.08em}
-    .d-intro strong{display:block;font-size:21px;line-height:1.45;letter-spacing:-.03em}
-    .d-intro-rule{height:1px;background:#e6e5ef;margin:22px 0 16px}
-    .d-intro-row{display:grid;grid-template-columns:82px 1fr;gap:20px;align-items:start;font-size:13px;line-height:1.65}
-    .d-intro-row span:first-child{color:#66667a;font-weight:700}
-
-    .d-shot-wrap{background:#eae7f8;border-radius:24px;padding:28px;margin-bottom:80px;display:grid;place-items:center}
-    .d-shot{margin:0;width:100%;min-width:0;transform:none!important}
-    .d-shot-crop{width:100%;aspect-ratio:2.25;overflow:hidden;border-radius:17px;background:#fff;box-shadow:0 25px 45px rgba(56,47,112,.16)}
-    .d-shot-crop img{display:block;width:100%;height:auto;transform:translateY(-11.5%)!important;rotate:none!important}
-
-    .d-section{display:grid;grid-template-columns:410px 1fr;column-gap:66px;padding:48px 0 74px;border-top:1px solid #dedee9}
-    .d-section-label{margin:0 0 18px;color:#6955e5;font-size:11px;font-weight:800;letter-spacing:.12em}
-    .d-section h2{margin:0;font-size:clamp(36px,3.2vw,46px);line-height:1.16;letter-spacing:-.055em;max-width:410px}
-    .d-section-copy>p{margin:2px 0 24px;max-width:720px;color:#5c5e73;font-size:15px;line-height:1.8}
-
-    .d-structure{background:#fff;border:1px solid #dedee9;border-radius:24px;padding:26px}
-    .d-project-core{width:144px;margin:0 auto 38px;background:#242432;border-radius:16px;padding:16px 12px;text-align:center;color:#fff;position:relative}
-    .d-project-core:after{content:"";position:absolute;left:50%;bottom:-20px;width:1px;height:20px;background:#c9c2f4}
-    .d-project-core strong{display:block;font-size:15px;letter-spacing:.01em}
-    .d-project-core span{display:block;margin-top:6px;color:#dbd9ed;font-size:11px}
-    .d-structure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .d-structure-item{min-height:82px;border:1px solid #dad6f5;border-radius:16px;background:#f4f2fc;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}
-    .d-structure-item strong{font-size:13px;line-height:1.2}
-    .d-structure-item span{margin-top:7px;color:#6b6b80;font-size:11px}
-
-    .d-design-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .d-design-card{min-height:220px;background:#fff;border:1px solid #dedee9;border-radius:20px;padding:24px 22px}
-    .d-design-card small,.d-flow-item small{display:block;color:#6955e5;font-size:11px;font-weight:800;margin-bottom:42px}
-    .d-design-card h3{margin:0 0 12px;font-size:21px;line-height:1.35;letter-spacing:-.035em}
-    .d-design-card p{margin:0;color:#6b6e82;font-size:13px;line-height:1.75}
-
-    .d-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-    .d-flow-item{min-height:112px;background:#fff;border:1px solid #dedee9;border-radius:16px;padding:16px;display:flex;flex-direction:column}
-    .d-flow-item small{margin-bottom:auto}
-    .d-flow-item strong{font-size:14px;line-height:1.45}
-
-    .d-work{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
-    .d-work-item{background:#fff;border:1px solid #dedee9;border-radius:16px;padding:18px 20px;min-height:92px}
-    .d-work-item span{display:block;color:#6955e5;font-size:11px;font-weight:800;margin-bottom:10px}
-    .d-work-item strong{font-size:14px;line-height:1.5}
-    .d-note{margin-top:18px;color:#747589!important;font-size:12px!important;line-height:1.7!important}
-
-    .d-nav{display:flex;justify-content:space-between;align-items:center;padding:38px 0 64px;border-top:1px solid #dedee9}
-    .d-nav a{color:#5c5c70;text-decoration:none;font-size:13px;font-weight:700}
-
-    @media(max-width:1000px){
-      .d-hero{grid-template-columns:1fr;gap:28px}
-      .d-section{grid-template-columns:1fr;gap:28px}
-      .d-section h2{max-width:700px}
-      .d-design-grid{grid-template-columns:1fr}
-      .d-flow{grid-template-columns:repeat(2,1fr)}
-      .d-work{grid-template-columns:1fr}
-    }
-    @media(max-width:680px){
-      .d-wrap{width:min(100% - 28px,1272px)}
-      .d-hero{padding-top:34px}
-      .d-hero h1{font-size:42px}
-      .d-subtitle{font-size:16px}
-      .d-shot-wrap{padding:14px;border-radius:18px;margin-bottom:56px}
-      .d-section{padding:38px 0 52px}
-      .d-section h2{font-size:34px}
-      .d-structure-grid{grid-template-columns:1fr 1fr}
-      .d-flow{grid-template-columns:1fr}
-      .d-intro-row{grid-template-columns:1fr;gap:8px}
-    }
+    .d-case{background:#f6f6fb;color:#242432}.d-wrap{width:min(1272px,calc(100% - 48px));margin:0 auto}.d-hero{display:grid;grid-template-columns:minmax(0,1fr) 464px;gap:48px;padding:54px 0 50px;align-items:start}.d-kicker{margin:0 0 22px;color:#6955e5;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.d-hero h1{margin:0;font-size:clamp(46px,4.4vw,60px);line-height:1.05;letter-spacing:-.055em}.d-subtitle{max-width:720px;margin:20px 0 0;color:#5c5e73;font-size:18px;line-height:1.65}.d-intro{background:#fff;border:1px solid #dedee9;border-radius:22px;padding:28px 30px 26px}.d-intro-label{margin:0 0 18px;color:#6955e5;font-size:11px;font-weight:800;letter-spacing:.08em}.d-intro strong{display:block;font-size:21px;line-height:1.45;letter-spacing:-.03em}.d-intro-rule{height:1px;background:#e6e5ef;margin:22px 0 16px}.d-intro-row{display:grid;grid-template-columns:82px 1fr;gap:20px;align-items:start;font-size:13px;line-height:1.65}.d-intro-row span:first-child{color:#66667a;font-weight:700}.d-shot-wrap{background:#eae7f8;border-radius:24px;padding:28px;margin-bottom:80px;display:grid;place-items:center}.d-shot{margin:0;width:100%;min-width:0;transform:none!important}.d-shot-crop{width:100%;aspect-ratio:2.25;overflow:hidden;border-radius:17px;background:#fff;box-shadow:0 25px 45px rgba(56,47,112,.16)}.d-shot-crop img{display:block;width:100%;height:auto;transform:translateY(-11.5%)!important;rotate:none!important}.d-section{display:grid;grid-template-columns:410px 1fr;column-gap:66px;padding:48px 0 74px;border-top:1px solid #dedee9}.d-section-label{margin:0 0 18px;color:#6955e5;font-size:11px;font-weight:800;letter-spacing:.12em}.d-section h2{margin:0;font-size:clamp(34px,2.9vw,42px);line-height:1.18;letter-spacing:-.05em;max-width:410px}.d-section-copy>p{margin:2px 0 24px;max-width:720px;color:#5c5e73;font-size:15px;line-height:1.8}.d-structure{background:#fff;border:1px solid #dedee9;border-radius:24px;padding:26px}.d-project-core{width:144px;margin:0 auto 38px;background:#242432;border-radius:16px;padding:16px 12px;text-align:center;color:#fff;position:relative}.d-project-core:after{content:"";position:absolute;left:50%;bottom:-20px;width:1px;height:20px;background:#c9c2f4}.d-project-core strong{display:block;font-size:15px;letter-spacing:.01em}.d-project-core span{display:block;margin-top:6px;color:#dbd9ed;font-size:11px}.d-structure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.d-structure-item{min-height:82px;border:1px solid #dad6f5;border-radius:16px;background:#f4f2fc;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}.d-structure-item strong{font-size:13px;line-height:1.2}.d-structure-item span{margin-top:7px;color:#6b6b80;font-size:11px}.d-design-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.d-design-card{min-height:220px;background:#fff;border:1px solid #dedee9;border-radius:20px;padding:24px 22px}.d-design-card small,.d-flow-item small{display:block;color:#6955e5;font-size:11px;font-weight:800;margin-bottom:42px}.d-design-card h3{margin:0 0 12px;font-size:21px;line-height:1.35;letter-spacing:-.035em}.d-design-card p{margin:0;color:#6b6e82;font-size:13px;line-height:1.75}.d-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.d-flow-item{min-height:112px;background:#fff;border:1px solid #dedee9;border-radius:16px;padding:16px;display:flex;flex-direction:column}.d-flow-item small{margin-bottom:auto}.d-flow-item strong{font-size:14px;line-height:1.45}.d-work{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.d-work-item{background:#fff;border:1px solid #dedee9;border-radius:16px;padding:18px 20px;min-height:92px}.d-work-item span{display:block;color:#6955e5;font-size:11px;font-weight:800;margin-bottom:10px}.d-work-item strong{font-size:14px;line-height:1.5}.d-note{margin-top:18px;color:#747589!important;font-size:12px!important;line-height:1.7!important}@media(max-width:1000px){.d-hero{grid-template-columns:1fr;gap:28px}.d-section{grid-template-columns:1fr;gap:28px}.d-section h2{max-width:700px}.d-design-grid{grid-template-columns:1fr}.d-flow{grid-template-columns:repeat(2,1fr)}.d-work{grid-template-columns:1fr}}@media(max-width:680px){.d-wrap{width:min(100% - 28px,1272px)}.d-hero{padding-top:34px}.d-hero h1{font-size:42px}.d-subtitle{font-size:16px}.d-shot-wrap{padding:14px;border-radius:18px;margin-bottom:56px}.d-section{padding:38px 0 52px}.d-section h2{font-size:34px}.d-structure-grid{grid-template-columns:1fr 1fr}.d-flow{grid-template-columns:1fr}.d-intro-row{grid-template-columns:1fr;gap:8px}}
   </style>
 </head>
 <body class="case-page d-case">
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="返回首页"><span class="brand-symbol">夏</span><span>夏夏<span class="brand-dot">.</span></span></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="打开导航"><span></span><span></span></button>
-    <nav id="site-nav" class="site-nav" aria-label="主导航"><a href="index.html#work">当前项目</a><a href="index.html#more">更多案例</a><a href="index.html#about">关于我</a></nav>
-    <a class="header-cta" href="index.html#contact">联系与合作 ↗</a>
-  </header>
-
+  <header class="site-header"><a class="brand" href="index.html" aria-label="返回首页"><span class="brand-symbol">夏</span><span>夏夏<span class="brand-dot">.</span></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="打开导航"><span></span><span></span></button><nav id="site-nav" class="site-nav" aria-label="主导航"><a href="index.html#work">当前项目</a><a href="index.html#more">更多案例</a><a href="index.html#about">关于我</a></nav><a class="header-cta" href="index.html#contact">联系与合作 ↗</a></header>
   <main>
-    <section class="d-wrap d-hero">
-      <div>
-        <p class="d-kicker">AI PRODUCT / CURRENT PROJECT</p>
-        <h1>AI 内容创作工作台</h1>
-        <p class="d-subtitle">从一个选题出发，让项目上下文、资料和历史经验进入 AI 创作，再生成不同平台版本。</p>
-      </div>
-      <aside class="d-intro">
-        <p class="d-intro-label">产品介绍</p>
-        <strong>围绕真实内容项目持续开发的本地 AI 工作台。</strong>
-        <div class="d-intro-rule"></div>
-        <div class="d-intro-row"><span>我的工作</span><span>产品定义 / 需求拆解 / 工作流程 / 页面结构 / AI 开发协作 / 真实项目验收</span></div>
-      </aside>
-    </section>
-
-    <section class="d-wrap d-shot-wrap" aria-label="AI 内容创作工作台真实界面">
-      <figure class="d-shot"><div class="d-shot-crop"><img src="assets/workbench-today-user-capture.png" alt="AI 内容创作工作台真实界面" loading="eager"></div></figure>
-    </section>
-
-    <section class="d-wrap d-section">
-      <div>
-        <p class="d-section-label">01 / 产品结构</p>
-        <h2>以项目为中心<br>组织信息</h2>
-      </div>
-      <div class="d-section-copy">
-        <p>不是单独堆功能，而是让人物、资料、知识、内容、任务和结果都围绕当前项目组织。</p>
-        <div class="d-structure">
-          <div class="d-project-core"><strong>PROJECT</strong><span>项目与当前工作</span></div>
-          <div class="d-structure-grid">
-            <div class="d-structure-item"><strong>PERSON</strong><span>人物</span></div>
-            <div class="d-structure-item"><strong>KNOWLEDGE</strong><span>知识索引</span></div>
-            <div class="d-structure-item"><strong>MEDIA</strong><span>素材</span></div>
-            <div class="d-structure-item"><strong>CONTENT</strong><span>内容</span></div>
-            <div class="d-structure-item"><strong>TASK</strong><span>任务</span></div>
-            <div class="d-structure-item"><strong>MEMORY / RESULT</strong><span>经验与结果记录</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-wrap d-section">
-      <div>
-        <p class="d-section-label">02 / 核心设计</p>
-        <h2>三个核心设计</h2>
-      </div>
-      <div class="d-section-copy">
-        <p>三个设计都来自真实内容项目中的重复问题：项目上下文容易丢、过去经验难复用、已有资料不应该因为换工具而重新搬运。</p>
-        <div class="d-design-grid">
-          <article class="d-design-card"><small>01</small><h3>项目上下文优先</h3><p>进入创作前先明确当前项目，让人物、资料和任务在同一上下文里工作。</p></article>
-          <article class="d-design-card"><small>02</small><h3>案例经验复用</h3><p>历史内容、项目经验和已确认资料，可以被下一次创作直接调用。</p></article>
-          <article class="d-design-card"><small>03</small><h3>本地资产优先</h3><p>保留 Obsidian 和本地文件体系，工作台负责索引、关联和创作调用。</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-wrap d-section">
-      <div>
-        <p class="d-section-label">03 / 创作流程</p>
-        <h2>从一个选题到<br>多平台内容</h2>
-      </div>
-      <div class="d-section-copy">
-        <p>创作台以当前项目为范围，把项目背景、资料、知识和已经沉淀的内容经验带进创作，再根据不同渠道生成对应版本。</p>
-        <div class="d-flow" aria-label="AI 内容创作流程">
-          <div class="d-flow-item"><small>01</small><strong>给出选题</strong></div>
-          <div class="d-flow-item"><small>02</small><strong>读取项目上下文</strong></div>
-          <div class="d-flow-item"><small>03</small><strong>调用资料与经验</strong></div>
-          <div class="d-flow-item"><small>04</small><strong>AI 创作与修改</strong></div>
-          <div class="d-flow-item"><small>05</small><strong>生成平台版本</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-wrap d-section">
-      <div>
-        <p class="d-section-label">04 / 我的工作</p>
-        <h2>从真实业务问题<br>推进到可用产品</h2>
-      </div>
-      <div class="d-section-copy">
-        <p>这个产品来自我自己的工作需求。我负责把内容项目里反复出现的问题拆成产品需求，并借助 AI 编程工具与开发协作持续实现，再放回真实项目中验证。</p>
-        <div class="d-work">
-          <div class="d-work-item"><span>01</span><strong>产品定义 / 需求拆解</strong></div>
-          <div class="d-work-item"><span>02</span><strong>工作流程 / 页面结构</strong></div>
-          <div class="d-work-item"><span>03</span><strong>AI 开发协作 / 真实项目验收</strong></div>
-        </div>
-        <p class="d-note">当前产品仍在持续迭代；内容生成后会继续编辑与审阅，审批属于质量控制环节，不作为产品核心叙事。</p>
-      </div>
-    </section>
-
-    <nav class="d-wrap d-nav" aria-label="案例导航"><a href="index.html#more">← 返回更多案例</a><a href="lishizhen.html">下一个案例 →</a></nav>
+    <section class="d-wrap d-hero"><div><p class="d-kicker">AI PRODUCT / CURRENT PROJECT</p><h1>AI 内容创作工作台</h1><p class="d-subtitle">从一个选题出发，让项目上下文、资料和历史经验进入 AI 创作，再生成不同平台版本。</p></div><aside class="d-intro"><p class="d-intro-label">产品介绍</p><strong>围绕真实内容项目持续开发的本地 AI 工作台。</strong><div class="d-intro-rule"></div><div class="d-intro-row"><span>我的工作</span><span>产品定义 / 需求拆解 / 工作流程 / 页面结构 / AI 开发协作 / 真实项目验收</span></div></aside></section>
+    <section class="d-wrap d-shot-wrap" aria-label="AI 内容创作工作台真实界面"><figure class="d-shot"><div class="d-shot-crop"><img src="assets/workbench-today-user-capture.png" alt="AI 内容创作工作台真实界面" loading="eager"></div></figure></section>
+    <section class="d-wrap d-section"><div><p class="d-section-label">01 / 产品结构</p><h2>以项目为中心<br>组织信息</h2></div><div class="d-section-copy"><p>不是单独堆功能，而是让人物、资料、知识、内容、任务和结果都围绕当前项目组织。</p><div class="d-structure"><div class="d-project-core"><strong>PROJECT</strong><span>项目与当前工作</span></div><div class="d-structure-grid"><div class="d-structure-item"><strong>PERSON</strong><span>人物</span></div><div class="d-structure-item"><strong>KNOWLEDGE</strong><span>知识索引</span></div><div class="d-structure-item"><strong>MEDIA</strong><span>素材</span></div><div class="d-structure-item"><strong>CONTENT</strong><span>内容</span></div><div class="d-structure-item"><strong>TASK</strong><span>任务</span></div><div class="d-structure-item"><strong>MEMORY / RESULT</strong><span>经验与结果记录</span></div></div></div></div></section>
+    <section class="d-wrap d-section"><div><p class="d-section-label">02 / 核心设计</p><h2>三个核心设计</h2></div><div class="d-section-copy"><p>三个设计都来自真实内容项目中的重复问题：项目上下文容易丢、过去经验难复用、已有资料不应该因为换工具而重新搬运。</p><div class="d-design-grid"><article class="d-design-card"><small>01</small><h3>项目上下文优先</h3><p>进入创作前先明确当前项目，让人物、资料和任务在同一上下文里工作。</p></article><article class="d-design-card"><small>02</small><h3>案例经验复用</h3><p>历史内容、项目经验和已确认资料，可以被下一次创作直接调用。</p></article><article class="d-design-card"><small>03</small><h3>本地资产优先</h3><p>保留 Obsidian 和本地文件体系，工作台负责索引、关联和创作调用。</p></article></div></div></section>
+    <section class="d-wrap d-section"><div><p class="d-section-label">03 / 创作流程</p><h2>从一个选题到<br>多平台内容</h2></div><div class="d-section-copy"><p>创作台以当前项目为范围，把项目背景、资料、知识和已经沉淀的内容经验带进创作，再根据不同渠道生成对应版本。</p><div class="d-flow" aria-label="AI 内容创作流程"><div class="d-flow-item"><small>01</small><strong>给出选题</strong></div><div class="d-flow-item"><small>02</small><strong>读取项目上下文</strong></div><div class="d-flow-item"><small>03</small><strong>调用资料与经验</strong></div><div class="d-flow-item"><small>04</small><strong>AI 创作与修改</strong></div><div class="d-flow-item"><small>05</small><strong>生成平台版本</strong></div></div></div></section>
+    <section class="d-wrap d-section"><div><p class="d-section-label">04 / 我的工作</p><h2>从真实业务问题<br>推进到可用产品</h2></div><div class="d-section-copy"><p>这个产品来自我自己的工作需求。我负责把内容项目里反复出现的问题拆成产品需求，并借助 AI 编程工具与开发协作持续实现，再放回真实项目中验证。</p><div class="d-work"><div class="d-work-item"><span>01</span><strong>产品定义 / 需求拆解</strong></div><div class="d-work-item"><span>02</span><strong>工作流程 / 页面结构</strong></div><div class="d-work-item"><span>03</span><strong>AI 开发协作 / 真实项目验收</strong></div></div><p class="d-note">当前产品仍在持续迭代；内容生成后会继续编辑与审阅，审批属于质量控制环节，不作为产品核心叙事。</p></div></section>
+    <nav class="cf-wrap cf-case-nav" aria-label="案例导航"><a class="cf-nav-card" href="index.html"><span>← 返回首页</span><strong>夏夏个人作品集</strong></a><a class="cf-nav-card middle" href="index.html#more"><span>全部案例</span><strong>返回更多案例 ↗</strong></a><a class="cf-nav-card right" href="lishizhen.html"><span>下一个案例 →</span><strong>李时珍项目</strong></a></nav>
   </main>
-
   <footer class="site-footer wrap"><span>© <span data-year>2026</span> 夏夏</span><span>AI Product × Content Growth</span><a href="index.html">返回首页 ↑</a></footer>
 </body>
 </html>
