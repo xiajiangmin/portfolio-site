@@ -205,3 +205,10 @@
   .d-design-card p, .d-screen-copy p { font-size: 14px; }
   .d-screen-copy h3 { font-size: 20px; }
 }
+
+/* A small shared accent identifies the project introduction on case pages. */
+.cf-intro-label, .d-intro-label { display: inline-flex; align-items: center; gap: 9px; }
+.cf-intro-label::before, .d-intro-label::before {
+  content: ''; flex: none; width: 8px; height: 8px; border-radius: 50%;
+  background: #d9f264; box-shadow: 0 0 0 3px rgba(217,242,100,.2);
+}
