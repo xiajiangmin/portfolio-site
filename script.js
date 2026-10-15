@@ -26,3 +26,18 @@ if (toggle && nav) {
 }
 const homepageProductShot = document.querySelector('.v2-featured .workbench-shot');
 if (homepageProductShot) homepageProductShot.style.transform = 'none';
+
+const validationSection = document.querySelector('.d-validation-section');
+if (validationSection) {
+  if (!document.querySelector('link[href="validation-polish.css"]')) {
+    const polish = document.createElement('link');
+    polish.rel = 'stylesheet';
+    polish.href = 'validation-polish.css';
+    document.head.appendChild(polish);
+  }
+
+  const intro = validationSection.querySelector('.d-validation-content > p:first-child');
+  if (intro) {
+    intro.textContent = '同一研修项目先在工作台完成内容编辑与预览，随后发布到小红书、公众号等渠道，并收到真实报名咨询。';
+  }
+}
