@@ -31,6 +31,7 @@
 }
 .d-case .creation-view-switch button:hover{border-color:#9f92e9}
 
+/* Desktop: let the two WeChat examples breathe instead of squeezing all three items into one row. */
 .d-case .validation-publish-list{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -49,23 +50,24 @@
   height:auto;
 }
 
+/* Keep the inquiry proof compact and crop away most of the personal-header area. */
 .d-case .validation-inquiry{max-width:760px}
-.d-case .validation-inquiry-media{
+.d-case .validation-inquiry>a{
   display:block;
   position:relative;
   width:240px;
   max-width:100%;
-  height:292px;
+  height:330px;
   overflow:hidden;
   border:1px solid #e7e6ec;
   border-radius:14px;
   background:#f7f7fa;
 }
-.d-case .validation-inquiry-media img{
+.d-case .validation-inquiry>a img{
   display:block;
   width:100%;
   height:auto;
-  transform:translateY(-58px);
+  transform:translateY(-72px);
 }
 
 @media(max-width:680px){
@@ -98,10 +100,10 @@
     scroll-snap-align:start;
   }
   .d-case .validation-publish-xhs img{max-height:none}
-  .d-case .validation-inquiry-media{
+  .d-case .validation-inquiry>a{
     width:min(100%,250px);
-    height:304px;
+    height:342px;
     justify-self:center;
   }
-  .d-case .validation-inquiry-media img{transform:translateY(-61px)}
+  .d-case .validation-inquiry>a img{transform:translateY(-76px)}
 }
