@@ -48,26 +48,16 @@ if (validationSection) {
   const xhsCard = validationSection.querySelector('.validation-publish-xhs');
   const inquiry = validationSection.querySelector('.validation-inquiry');
 
-  if (xhsCard && inquiry && !xhsCard.querySelector('.validation-feedback-inline')) {
-    const inquiryImage = inquiry.querySelector('img');
-    const feedback = document.createElement('div');
-    feedback.className = 'validation-feedback-inline';
-    feedback.innerHTML = `
-      <div class="validation-feedback-copy">
-        <span>咨询反馈</span>
-        <p>发布后收到真实报名咨询</p>
-        <strong>“怎么报名收费？”</strong>
-      </div>
-      <div class="validation-feedback-thumb"></div>
-    `;
-    if (inquiryImage) {
-      const cloned = inquiryImage.cloneNode(true);
-      cloned.removeAttribute('width');
-      cloned.removeAttribute('height');
-      feedback.querySelector('.validation-feedback-thumb').appendChild(cloned);
-    }
-    xhsCard.appendChild(feedback);
-    inquiry.remove();
+  if (publishList && xhsCard && inquiry && !validationSection.querySelector('.validation-xhs-row')) {
+    const row = document.createElement('div');
+    row.className = 'validation-xhs-row';
+    publishList.insertAdjacentElement('beforebegin', row);
+    row.append(xhsCard, inquiry);
+
+    const inquiryLabel = inquiry.querySelector('.validation-inquiry-copy span');
+    if (inquiryLabel) inquiryLabel.textContent = '咨询反馈';
+    const inquiryTitle = inquiry.querySelector('.validation-inquiry-copy h3');
+    if (inquiryTitle) inquiryTitle.textContent = '发布后收到报名咨询';
   }
 
   if (publishList) {
