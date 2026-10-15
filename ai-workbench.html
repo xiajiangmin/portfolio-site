@@ -9,9 +9,9 @@
 .d-validation-content>p:first-child{margin-bottom:30px}
 .validation-step+.validation-step{margin-top:40px;padding-top:35px;border-top:1px solid #e2e1eb}
 .validation-step-heading{margin-bottom:16px}
-.validation-step-heading span,.validation-inquiry-copy span{display:block;margin-bottom:8px;color:#6955e5;font-size:13px;font-weight:750;letter-spacing:.025em}
+.validation-step-heading span{display:block;margin-bottom:8px;color:#6955e5;font-size:13px;font-weight:750;letter-spacing:.025em}
 .validation-step h3{margin:0 0 7px;color:#272735;font-size:21px;line-height:1.35;letter-spacing:-.025em}
-.validation-step-heading p,.validation-inquiry-copy p{margin:0;color:#65687a;font-size:14px;line-height:1.7}
+.validation-step-heading p{margin:0;color:#65687a;font-size:14px;line-height:1.7}
 .creation-view-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px 24px 20px}
 .creation-view-switch button{appearance:none;display:flex;align-items:center;gap:11px;min-width:0;border:1px solid #dedbe9;border-radius:12px;background:#fff;color:#5e6072;padding:7px;text-align:left;font:inherit;font-size:13px;font-weight:700;line-height:1.35;cursor:pointer}
 .creation-view-switch button img{display:block;flex:0 0 90px;width:90px;height:52px;object-fit:contain;border-radius:7px;background:#f4f2fc}
@@ -24,20 +24,29 @@
 .creation-view-slide img{display:block;width:100%;height:100%;object-fit:contain}
 .creation-view-open{position:absolute;right:14px;top:14px;padding:8px 11px;border:1px solid #dedbe9;border-radius:999px;background:rgba(255,255,255,.96);color:#353347;font-size:12px;font-weight:700;line-height:1.2;box-shadow:0 2px 8px rgba(39,32,73,.08)}
 .creation-view-slide:focus-visible{outline:3px solid #6955e5;outline-offset:-3px}
-.validation-publish-list{display:grid;grid-template-columns:minmax(0,1.55fr) repeat(2,minmax(0,.9fr));gap:14px;align-items:start}
+.validation-proof-row{display:grid;grid-template-columns:minmax(0,64fr) minmax(300px,36fr);gap:14px;align-items:stretch;margin-bottom:22px}
+.validation-proof-row>figure{min-width:0}
+.validation-publish-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
 .validation-publish-item{min-width:0;margin:0;overflow:hidden;border:1px solid #dedee9;border-radius:15px;background:#fff}
 .validation-publish-item a{display:block}
 .validation-publish-item img{display:block;width:100%;height:auto}
 .validation-publish-item figcaption{padding:11px 13px 13px;color:#505366;font-size:13px;font-weight:650;line-height:1.4}
-.validation-inquiry{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center;max-width:720px;padding:22px 24px;border:1px solid #dedee9;border-radius:19px;background:#fff}
-.validation-inquiry-copy strong{display:block;margin-top:16px;color:#5148a9;font-size:17px;line-height:1.45;font-weight:700}
-.validation-inquiry>a{display:block;width:220px;max-width:100%;overflow:hidden;border:1px solid #e7e6ec;border-radius:14px;background:#f7f7fa}
-.validation-inquiry img{display:block;width:100%;height:auto}
+.validation-publish-xhs,.validation-publish-list>.validation-publish-item{display:flex;flex-direction:column}
+.validation-publish-xhs>a{flex:1;display:flex;align-items:center;background:#faf9fd}
+.validation-publish-xhs figcaption,.validation-publish-list figcaption{margin-top:auto}
+.validation-wechat-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 10px 0}
+.validation-wechat-pair>a{aspect-ratio:.62;overflow:hidden;border:1px solid #e7e6ee;border-radius:10px;background:#fff}
+.validation-wechat-pair img{width:100%;height:100%;object-fit:cover;object-position:top}
+.validation-consult-card{min-width:0;padding:8px;border:1px solid #dedee9;border-radius:15px;background:#fff}
+.validation-consult-card h3{margin:0 0 5px;font-size:18px;line-height:1.35}
+.validation-consult-card p{margin:0 0 10px;color:#65687a;font-size:13px;line-height:1.5}
+.validation-consult-card>a{display:block;width:100%;overflow:hidden;border:1px solid #e7e6ec;border-radius:10px;background:#f7f7fa}
+.validation-consult-card img{display:block;width:100%;height:auto}
 .d-validation-content>.validation-conclusion{margin:24px 0 0;color:#45475a;font-size:15px;font-weight:700;line-height:1.65}
-@media(hover:hover){.validation-publish-item,.validation-inquiry>a{transition:transform .22s ease,border-color .22s ease}.validation-publish-item:hover,.validation-inquiry>a:hover{transform:translateY(-2px);border-color:#cfc9e8}}
-@media(max-width:1100px){.validation-publish-list{grid-template-columns:repeat(2,minmax(0,1fr))}.validation-publish-xhs{grid-column:1/-1}.validation-publish-xhs img{max-height:420px;object-fit:contain;object-position:left;background:#fff}}
-@media(max-width:680px){.creation-view-switch{gap:8px;padding:12px 12px 16px}.creation-view-switch button{display:block;padding:6px;font-size:11px}.creation-view-switch button img{width:100%;height:auto;aspect-ratio:1.73;margin-bottom:6px}.creation-view-open{right:9px;top:9px;padding:6px 8px;font-size:11px}.d-validation-content>p:first-child{margin-bottom:26px}.validation-step+.validation-step{margin-top:32px;padding-top:29px}.validation-step h3{font-size:20px}.validation-publish-list{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:0 2px 12px;scrollbar-width:thin}.validation-publish-item,.validation-publish-xhs{flex:0 0 min(78vw,290px);scroll-snap-align:start}.validation-publish-xhs img{max-height:none}.validation-inquiry{grid-template-columns:1fr;gap:18px;padding:20px}.validation-inquiry>a{width:min(100%,230px);max-width:none;justify-self:center}.validation-inquiry-copy strong{margin-top:12px}.d-validation-content>.validation-conclusion{margin-top:21px}}
-@media(prefers-reduced-motion:reduce){.validation-publish-item,.validation-inquiry>a{transition:none!important}}
+@media(hover:hover){.validation-publish-item,.validation-consult-card>a{transition:transform .22s ease,border-color .22s ease}.validation-publish-item:hover,.validation-consult-card>a:hover{transform:translateY(-2px);border-color:#cfc9e8}}
+@media(max-width:900px){.validation-proof-row{grid-template-columns:1fr 1fr}.validation-consult-card h3{font-size:17px}}
+@media(max-width:680px){.creation-view-switch{gap:8px;padding:12px 12px 16px}.creation-view-switch button{display:block;padding:6px;font-size:11px}.creation-view-switch button img{width:100%;height:auto;aspect-ratio:1.73;margin-bottom:6px}.creation-view-open{right:9px;top:9px;padding:6px 8px;font-size:11px}.d-validation-content>p:first-child{margin-bottom:26px}.validation-step+.validation-step{margin-top:32px;padding-top:29px}.validation-step h3{font-size:20px}.validation-proof-row{grid-template-columns:1fr;gap:15px;margin-bottom:25px}.validation-publish-xhs>a{display:block}.validation-consult-card{padding:12px}.validation-consult-card>a{max-width:320px;margin-inline:auto}.validation-publish-list{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:0 2px 12px;scrollbar-width:thin}.validation-publish-list>.validation-publish-item{flex:0 0 min(78vw,290px);scroll-snap-align:start}.d-validation-content>.validation-conclusion{margin-top:21px}}
+@media(prefers-reduced-motion:reduce){.validation-publish-item,.validation-consult-card>a{transition:none!important}}
 </style></head>
 <body class="case-page d-case"><header class="site-header"><a class="brand" href="index.html" aria-label="返回首页"><span class="brand-symbol">夏</span><span class="brand-home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3.5 10 8.5-7 8.5 7v10.5h-6v-6h-5v6h-6z"/></svg><span>首页</span></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="打开导航"><span></span><span></span></button><nav id="site-nav" class="site-nav"><a href="index.html#work">当前项目</a><a href="index.html#more">更多案例</a><a href="index.html#about">关于我</a></nav><a class="header-cta" href="index.html#contact">联系与合作 ↗</a></header><main>
 <section class="d-wrap d-hero"><div><p class="d-kicker">AI PRODUCT / 0→1 PRODUCT PRACTICE</p><h1>夏夏 AI 内容获客系统</h1><p class="d-subtitle">把内容获客经验、业务资料和 AI 工作流结合起来，让没有专业内容团队的一人公司和小企业，也能建立可持续使用的内容运营流程。</p></div><aside class="d-intro"><p class="d-intro-label">产品定位</p><strong>项目知识库 + AI 工作台</strong><div class="d-intro-rule"></div><div class="d-intro-row"><span>交付方式</span><span>项目搭建 + 共创陪跑</span></div><div class="d-intro-row"><span>我的工作</span><span>用户与业务问题定义 / 产品与 MVP / PRD / AI 工作流 / 开发协作 / 商业试点设计</span></div></aside></section>
@@ -64,15 +73,14 @@
     <p>上方展示了李时珍学校研修项目在工作台内的内容编辑与预览。完成后，内容发布到小红书、公众号等渠道，并带来真实用户咨询。</p>
     <div class="validation-step validation-publishing">
       <div class="validation-step-heading"><span>01 / 真实发布</span><h3>内容已经真实发布</h3><p>生成内容已用于小红书、公众号等真实渠道，不停留在内部演示。</p></div>
-      <div class="validation-publish-list" aria-label="真实发布截图，手机上可左右滑动查看">
-        <figure class="validation-publish-item validation-publish-xhs"><a href="assets/validation/validation-xhs.webp" target="_blank" rel="noopener" aria-label="查看小红书发布截图大图"><img src="assets/validation/validation-xhs.webp" alt="小红书账号时珍本草研学记发布叶开泰研修内容，含主视觉、标题和正文" loading="lazy" width="1100" height="845"></a><figcaption>小红书</figcaption></figure>
-        <figure class="validation-publish-item"><a href="assets/validation/validation-wechat-01.webp" target="_blank" rel="noopener" aria-label="查看叶开泰研修公众号文章大图"><img src="assets/validation/validation-wechat-01.webp" alt="公众号正式发布的叶开泰研修文章首屏，包含标题、主视觉和开头内容" loading="lazy" width="430" height="930"></a><figcaption>公众号 · 叶开泰研修</figcaption></figure>
-        <figure class="validation-publish-item"><a href="assets/validation/validation-wechat-02.webp" target="_blank" rel="noopener" aria-label="查看九资河溯源公众号文章大图"><img src="assets/validation/validation-wechat-02.webp" alt="公众号正式发布的九资河溯源研修文章首屏，包含标题、主视觉和开头内容" loading="lazy" width="430" height="900"></a><figcaption>公众号 · 九资河溯源</figcaption></figure>
+      <div class="validation-proof-row" aria-label="小红书发布与用户咨询证据">
+        <figure class="validation-publish-item validation-publish-xhs"><a href="assets/validation/validation-xhs-cropped.webp" target="_blank" rel="noopener" aria-label="查看小红书发布截图大图"><img src="assets/validation/validation-xhs-cropped.webp" alt="小红书账号时珍本草研学记发布叶开泰研修内容，包含主视觉、账号、标题、正文和互动区" loading="lazy" width="1320" height="1024"></a><figcaption>小红书</figcaption></figure>
+        <div class="validation-consult-card"><h3>咨询反馈</h3><p>发布后收到真实报名咨询。</p><a href="assets/validation/validation-inquiry.webp" target="_blank" rel="noopener" aria-label="查看用户咨询截图大图，包含怎么报名收费的提问"><img src="assets/validation/validation-inquiry.webp" alt="微信聊天截图：用户看到研修内容卡片后询问怎么报名收费" loading="lazy" width="750" height="1093"></a></div>
       </div>
-    </div>
-    <div class="validation-step validation-inquiry">
-      <div class="validation-inquiry-copy"><span>02 / 用户咨询</span><h3>发布后带来真实咨询</h3><p>用户看到内容后主动询问报名与收费，内容开始进入真实获客场景。</p><strong>“怎么报名收费？”</strong></div>
-      <a href="assets/validation/validation-inquiry.webp" target="_blank" rel="noopener" aria-label="查看用户咨询截图大图，包含怎么报名收费的提问"><img src="assets/validation/validation-inquiry.webp" alt="微信聊天截图：用户看到研修内容卡片后询问怎么报名收费" loading="lazy" width="750" height="1093"></a>
+      <div class="validation-publish-list" aria-label="真实发布截图，手机上可左右滑动查看">
+        <figure class="validation-publish-item"><div class="validation-wechat-pair"><a href="assets/validation/validation-wechat-01.webp" target="_blank" rel="noopener" aria-label="查看叶开泰研修公众号文章首屏大图"><img src="assets/validation/validation-wechat-01.webp" alt="叶开泰研修公众号文章标题、主视觉和开头" loading="lazy" width="430" height="930"></a><a href="assets/validation/validation-wechat-01-detail.webp" target="_blank" rel="noopener" aria-label="查看叶开泰研修公众号文章正文大图"><img src="assets/validation/validation-wechat-01-detail.webp" alt="叶开泰研修公众号文章的正文片段" loading="lazy" width="430" height="800"></a></div><figcaption>公众号 · 叶开泰研修</figcaption></figure>
+        <figure class="validation-publish-item"><div class="validation-wechat-pair"><a href="assets/validation/validation-wechat-02.webp" target="_blank" rel="noopener" aria-label="查看九资河溯源公众号文章首屏大图"><img src="assets/validation/validation-wechat-02.webp" alt="九资河溯源公众号文章标题、主视觉和开头" loading="lazy" width="430" height="900"></a><a href="assets/validation/validation-wechat-02-detail.webp" target="_blank" rel="noopener" aria-label="查看九资河溯源公众号文章正文大图"><img src="assets/validation/validation-wechat-02-detail.webp" alt="九资河溯源公众号文章的正文与现场照片" loading="lazy" width="430" height="800"></a></div><figcaption>公众号 · 九资河溯源</figcaption></figure>
+      </div>
     </div>
     <p class="validation-conclusion">目前已经跑通从内容生产、实际发布到用户咨询的第一轮闭环。</p>
   </div>
