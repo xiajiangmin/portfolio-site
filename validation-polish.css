@@ -31,7 +31,7 @@
 }
 .d-case .creation-view-switch button:hover{border-color:#9f92e9}
 
-/* Desktop: let the two WeChat examples breathe instead of squeezing all three items into one row. */
+/* Validation evidence: keep the proof dense, readable and clearly grouped. */
 .d-case .validation-publish-list{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -39,36 +39,92 @@
   align-items:start;
 }
 .d-case .validation-publish-xhs{grid-column:1/-1}
-.d-case .validation-publish-xhs img{
+.d-case .validation-publish-xhs>a{display:block;background:#fff}
+.d-case .validation-publish-xhs>a img{
+  display:block;
+  width:100%;
   max-height:430px;
   object-fit:contain;
   object-position:left center;
   background:#fff;
 }
-.d-case .validation-publish-item:not(.validation-publish-xhs) img{
+
+.d-case .validation-feedback-inline{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 180px;
+  gap:18px;
+  align-items:center;
+  margin:0 14px 14px;
+  padding:16px 18px;
+  border-top:1px solid #eceaf3;
+  background:#faf9fd;
+  border-radius:12px;
+}
+.d-case .validation-feedback-copy span{
+  display:block;
+  margin-bottom:6px;
+  color:#6955e5;
+  font-size:12px;
+  font-weight:750;
+}
+.d-case .validation-feedback-copy p{
+  margin:0 0 7px;
+  color:#65687a;
+  font-size:13px;
+  line-height:1.6;
+}
+.d-case .validation-feedback-copy strong{
+  display:block;
+  color:#5148a9;
+  font-size:17px;
+  line-height:1.45;
+}
+.d-case .validation-feedback-thumb{
+  height:116px;
+  overflow:hidden;
+  border:1px solid #e6e4ee;
+  border-radius:10px;
+  background:#fff;
+}
+.d-case .validation-feedback-thumb img{
+  display:block;
   width:100%;
   height:auto;
+  transform:translateY(-58px);
 }
 
-/* Keep the inquiry proof compact and crop away most of the personal-header area. */
-.d-case .validation-inquiry{max-width:760px}
-.d-case .validation-inquiry>a{
-  display:block;
-  position:relative;
-  width:240px;
-  max-width:100%;
-  height:330px;
-  overflow:hidden;
-  border:1px solid #e7e6ec;
-  border-radius:14px;
-  background:#f7f7fa;
+.d-case .validation-wechat-item{padding:0}
+.d-case .validation-wechat-preview{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  padding:10px 10px 0;
+  background:#fff;
 }
-.d-case .validation-inquiry>a img{
+.d-case .validation-wechat-shot{
+  height:260px;
+  overflow:hidden;
+  border:1px solid #eceaf2;
+  border-radius:10px;
+  background:#f8f8fb;
+}
+.d-case .validation-wechat-shot img{
   display:block;
   width:100%;
   height:auto;
-  transform:translateY(-72px);
 }
+.d-case .validation-wechat-shot.is-cover img{transform:translateY(0)}
+.d-case .validation-wechat-shot.is-body img{transform:translateY(-315px)}
+.d-case .validation-publish-item figcaption{
+  padding:11px 13px 13px;
+  color:#505366;
+  font-size:13px;
+  font-weight:650;
+  line-height:1.4;
+}
+
+/* The inquiry is now merged into the Xiaohongshu proof; suppress the old standalone block. */
+.d-case .validation-inquiry{display:none!important}
 
 @media(max-width:680px){
   .d-case .creation-view-switch{
@@ -95,15 +151,21 @@
   }
   .d-case .validation-publish-item,
   .d-case .validation-publish-xhs{
-    flex:0 0 min(78vw,290px);
+    flex:0 0 min(84vw,320px);
     grid-column:auto;
     scroll-snap-align:start;
   }
-  .d-case .validation-publish-xhs img{max-height:none}
-  .d-case .validation-inquiry>a{
-    width:min(100%,250px);
-    height:342px;
-    justify-self:center;
+  .d-case .validation-publish-xhs>a img{max-height:none}
+  .d-case .validation-feedback-inline{
+    grid-template-columns:1fr 110px;
+    gap:10px;
+    margin:0 10px 10px;
+    padding:13px;
   }
-  .d-case .validation-inquiry>a img{transform:translateY(-76px)}
+  .d-case .validation-feedback-copy strong{font-size:15px}
+  .d-case .validation-feedback-thumb{height:92px}
+  .d-case .validation-feedback-thumb img{transform:translateY(-44px)}
+  .d-case .validation-wechat-preview{gap:6px;padding:8px 8px 0}
+  .d-case .validation-wechat-shot{height:210px}
+  .d-case .validation-wechat-shot.is-body img{transform:translateY(-260px)}
 }
