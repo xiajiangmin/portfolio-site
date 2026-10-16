@@ -1,0 +1,103 @@
+/* Mobile-only refinements for the AI workbench case page. */
+@media (max-width: 680px) {
+  /* Keep the real-publishing proof compact: publish + inquiry side by side. */
+  .d-case .validation-proof-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+    margin-bottom: 20px !important;
+  }
+
+  .d-case .validation-publish-xhs,
+  .d-case .validation-consult-card {
+    min-width: 0;
+    border-radius: 14px !important;
+  }
+
+  .d-case .validation-publish-xhs > a {
+    height: 184px;
+    overflow: hidden;
+    background: #f8f7fc;
+  }
+
+  .d-case .validation-publish-xhs > a img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: left top !important;
+  }
+
+  .d-case .validation-publish-xhs figcaption {
+    padding: 8px 10px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .d-case .validation-consult-card {
+    padding: 9px !important;
+  }
+
+  .d-case .validation-consult-card h3 {
+    margin: 0 0 3px !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  .d-case .validation-consult-card p {
+    margin: 0 0 7px !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+  }
+
+  .d-case .validation-consult-card > a {
+    width: 100% !important;
+    max-width: none !important;
+    height: 184px;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+
+  .d-case .validation-consult-card > a img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 62% !important;
+  }
+
+  /* The workflow is a sequence: show it as one compact horizontal rail on mobile. */
+  .d-case .d-flow {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 10px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    padding: 1px 14px 10px 1px;
+    margin-right: -14px;
+    scrollbar-width: none;
+  }
+
+  .d-case .d-flow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .d-case .d-flow-item {
+    flex: 0 0 146px;
+    min-height: 94px !important;
+    height: 94px;
+    padding: 12px 13px !important;
+    border-radius: 14px !important;
+    scroll-snap-align: start;
+  }
+
+  .d-case .d-flow-item small {
+    margin: 0 !important;
+    font-size: 11px !important;
+  }
+
+  .d-case .d-flow-item strong {
+    margin-top: auto;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+}
