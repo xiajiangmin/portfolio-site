@@ -100,4 +100,39 @@
     font-size: 13px !important;
     line-height: 1.35 !important;
   }
+
+  /* “我的工作” is not a step sequence. Use a compact 2-column scan grid instead of six full-width cards. */
+  .d-case .d-work {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: 18px !important;
+  }
+
+  .d-case .d-work-item {
+    min-width: 0;
+    min-height: 126px !important;
+    padding: 13px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .d-case .d-work-item span {
+    margin-bottom: 8px !important;
+    font-size: 10px !important;
+  }
+
+  .d-case .d-work-item strong {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .d-case .d-work-item p {
+    margin-top: 7px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
 }
