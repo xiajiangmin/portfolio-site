@@ -26,3 +26,10 @@ if (toggle && nav) {
 }
 const homepageProductShot = document.querySelector('.v2-featured .workbench-shot');
 if (homepageProductShot) homepageProductShot.style.transform = 'none';
+
+if (document.body.classList.contains('d-case') && !document.querySelector('link[href="mobile-refinement.css"]')) {
+  const mobileRefinement = document.createElement('link');
+  mobileRefinement.rel = 'stylesheet';
+  mobileRefinement.href = 'mobile-refinement.css';
+  document.head.appendChild(mobileRefinement);
+}
